@@ -57,10 +57,17 @@ public class Entrenamiento extends DomainEntity {
 	public Gimnasio getGimnasio() {
 		return this.gimnasio;
 	}
+	public void setGimnasio(final Gimnasio gimnasio) {
+		this.gimnasio = gimnasio;
+	}
 
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Paso> getPasos() {
 		return this.pasos;
+	}
+
+	public void setPasos(final Collection<Paso> pasos) {
+		this.pasos = pasos;
 	}
 
 }

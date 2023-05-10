@@ -104,4 +104,8 @@ public abstract class Actor extends DomainEntity {
 	public Collection<Anotacion> getAnotaciones() {
 		return this.anotaciones;
 	}
+
+	public void setAnotaciones(final Collection<Anotacion> anotaciones) {
+		this.anotaciones = anotaciones;
+	}
 }

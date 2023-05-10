@@ -94,13 +94,21 @@ public class Cliente extends Actor {
 
 
 	@OneToMany
-	public Collection<RegistroGimnasio> getregistrosGimnasio() {
+	public Collection<RegistroGimnasio> getRegistrosGimnasio() {
 		return this.registrosGimnasio;
 	}
 
+	public void setRegistrosGimnasio(final Collection<RegistroGimnasio> registrosGimnasio) {
+		this.registrosGimnasio = registrosGimnasio;
+	}
+
 	@OneToMany
-	public Collection<RegistroActividad> getregistrosActividad() {
+	public Collection<RegistroActividad> getRegistrosActividad() {
 		return this.registrosActividad;
+	}
+
+	public void setRegistrosActividad(final Collection<RegistroActividad> registrosActividad) {
+		this.registrosActividad = registrosActividad;
 	}
 
 }

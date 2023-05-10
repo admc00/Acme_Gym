@@ -81,18 +81,36 @@ public class Gimnasio extends DomainEntity {
 		return this.gerente;
 	}
 
+	public void setGerente(final Gerente gerente) {
+		this.gerente = gerente;
+	}
+
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Entrenamiento> getEntrenamientos() {
 		return this.entrenamientos;
+	}
+	public void setEntrenamientos(final Collection<Entrenamiento> entrenamientos) {
+		this.entrenamientos = entrenamientos;
+	}
+
+	public void addEntrenamiento(final Entrenamiento e) {
+		this.entrenamientos.add(e);
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Actividad> getActividades() {
 		return this.actividades;
 	}
+	public void setActividades(final Collection<Actividad> actividades) {
+		this.actividades = actividades;
+	}
 	@OneToMany
-	public Collection<RegistroGimnasio> getregistrosGimnasio() {
+	public Collection<RegistroGimnasio> getRegistrosGimnasio() {
 		return this.registrosGimnasio;
+	}
+
+	public void setRegistrosGimnasio(final Collection<RegistroGimnasio> registrosGimnasio) {
+		this.registrosGimnasio = registrosGimnasio;
 	}
 
 }

@@ -1,62 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
- * PopulateDatabase.xml
- *
- * Copyright (C) 2018 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
- * http://www.tdg-seville.info/License.html
- -->
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
-	
-	<!-- User accounts -->
+	<!-- Entrenadores -->
 
-	<bean id="userAccount1" class="security.UserAccount">
-		<property name="username" value="admin" />
-		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
-		<property name="authorities">
+	<bean id="entrenador1" class="domain.Entrenador">
+		<property name="nombre" value="Juan" />
+		<property name="apellido" value="Garcia" />
+		<property name="email" value="juang@gmail.com" />
+		<property name="telefono" value="765156222" />
+		<property name="codigoPostal" value="11111" />
+		<property name="ciudad" value="Huelva" />
+		<property name="pais" value="España" />
+	</bean>
+
+	<!-- Clientes -->
+
+	<bean id="cliente1" class="domain.Cliente">
+		<property name="nombre" value="Alfredo" />
+		<property name="apellido" value="Perez" />
+		<property name="email" value="alfp@gmail.com" />
+		<property name="telefono" value="234865144" />
+		<property name="codigoPostal" value="21560" />
+		<property name="ciudad" value="Alicante" />
+		<property name="pais" value="España" />
+		<property name="nombreTitular" value="Alfredo" />
+		<property name="numeroTarjeta" value="4211012387649363" />
+		<property name="mesCaducidad" value="06" />
+		<property name="anioCaducidad" value="2024" />
+		<property name="cvv" value="753" />
+	</bean>
+
+	<!-- Administradores -->
+
+	<bean id="administrador1" class="domain.Administrador">
+		<property name="nombre" value="Francisco" />
+		<property name="apellido" value="Gomez" />
+		<property name="email" value="franciscogp@gmail.com" />
+		<property name="telefono" value="755124522" />
+		<property name="codigoPostal" value="21213" />
+		<property name="ciudad" value="Murcia" />
+		<property name="pais" value="España" />
+	</bean>
+
+	<!-- Gerentes -->
+
+	<bean id="gerente1" class="domain.Gerente">
+		<property name="nombre" value="Antonio" />
+		<property name="apellido" value="Carrasco" />
+		<property name="email" value="antonioc@gmail.com" />
+		<property name="telefono" value="622134552" />
+		<property name="codigoPostal" value="21200" />
+		<property name="ciudad" value="Sevilla" />
+		<property name="pais" value="España" />
+		<property name="baneado" value="false" />
+	</bean>
+
+	<!-- CVs -->
+
+	<bean id="cv1" class="domain.CV">
+		<property name="nombre" value="Juan" />
+		<property name="apellido" value="Garcia" />
+		<property name="especialidad" value="Nutricion" />
+		<property name="formacion" value="Universidad de Huelva" />
+		<property name="experienciaLaboral" value="2" />
+		<!--<property name="identidadSocial" value="@juangarcia" /> -->
+	</bean>
+
+	<!-- Gimnasios -->
+
+	<bean id="gimnasio1" class="domain.Gimnasio">
+		<property name="logotipo" value="/" />
+		<property name="nombre" value="Gimnasio1" />
+		<property name="direccion" value="Calle Ejemplo nº 12" />
+		<property name="tarifa" value="29.99" />
+		<property name="gerente" ref="gerente1" />
+		<property name="entrenamientos">
 			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
-				</bean>
+				<ref bean="entrenamiento1" />
+			</list>
+		</property>
+		<property name="actividades">
+			<list>
+				<ref bean="actividad1" />
+			</list>
+		</property>
+		<property name="registrosGimnasio">
+			<list>
+				<ref bean="registroGimnasio1" />
 			</list>
 		</property>
 	</bean>
 
-	<bean id="userAccount2" class="security.UserAccount">
-		<property name="username" value="customer" />
-		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
-		<property name="authorities">
+	<!-- Actividades -->
+
+	<bean id="actividad1" class="domain.Actividad">
+		<property name="titulo" value="Crossfit" />
+		<property name="fotos" value="/" />
+		<property name="descripcion"
+			value="Actividad para tonificar el cuerpo" />
+		<!--<property name="diaSemana" value="Monday" /> <property name="horaInicio" 
+			value="4pm" /> <property name="horaFin" value="5pm" /> -->
+		<property name="numeroPlazas" value="15" />
+		<property name="entrenadores">
 			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
-				</bean>
+				<ref bean="entrenador1" />
 			</list>
 		</property>
+		<property name="gimnasio" ref="gimnasio1" />
+		<property name="registrosActividad"
+			value="registroActividad1" />
 	</bean>
 
-	<bean id="userAccount3" class="security.UserAccount">
-		<property name="username" value="super" />
-		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
-		<property name="authorities">
+	<!-- Anotaciones -->
+
+	<bean id="anotacion1" class="domain.Anotacion">
+		<property name="momentoEscritura" value="12/06/2023" />
+		<property name="texto" value="Buen gimnasio" />
+		<property name="calificacion" value="2" />
+	</bean>
+
+	<!-- Entrenamientos -->
+
+	<bean id="entrenamiento1" class="domain.Entrenamiento">
+		<property name="titulo" value="Fuerza" />
+		<property name="descripcion" value="Entrenamiento de fuerza" />
+		<property name="gimnasio" ref="gimnasio1" />
+		<property name="pasos">
 			<list>
-				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
-				</bean>
-				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
-				</bean>
+				<ref bean="paso1" />
 			</list>
 		</property>
+		<property name="gerente" value="gerente1" />
 	</bean>
-	
-	<!-- Other domain beans come here -->	
-	
+
+	<!-- Pasos -->
+
+	<bean id="paso1" class="domain.Paso">
+		<property name="descripcion" value="Levantamiento de pesas" />
+		<property name="video" value="/" />
+		<property name="numero" value="1" />
+		<property name="entrenamiento" ref="entrenamiento1" />
+	</bean>
+
+	<!-- Resgistros de actividades -->
+
+	<bean id="registroActividad1" class="domain.RegistroActividad">
+		<property name="fechaAlta" value="12/05/2023" />
+		<property name="fechaBaja" value="" />
+		<property name="actividad" ref="actividad1" />
+		<property name="cliente" ref="cliente1" />
+	</bean>
+
+	<!-- Resgistros de gimnasios -->
+
+	<bean id="registroGimnasio1" class="domain.RegistroGimnasio">
+		<property name="fechaAlta" value="12/05/2023" />
+		<property name="fechaBaja" value="" />
+		<property name="gimnasio" ref="gimnasio1" />
+		<property name="cliente" ref="cliente1" />
+	</bean>
+
 </beans>

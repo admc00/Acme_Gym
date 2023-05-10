@@ -32,9 +32,17 @@ public class Entrenador extends Actor {
 		return this.actividad;
 	}
 
-	@OneToOne(optional = true)
-	public CV getCV() {
+	public void setActividad(final Collection<Actividad> actividad) {
+		this.actividad = actividad;
+	}
+
+	@OneToOne
+	public CV getCv() {
 		return this.cv;
+	}
+
+	public void setCv(final CV cv) {
+		this.cv = cv;
 	}
 
 }

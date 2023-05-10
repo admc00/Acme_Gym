@@ -24,7 +24,7 @@ public class Anotacion extends DomainEntity {
 
 	private Calendar	momentoEscritura;
 	private String		texto;
-	private int			calificaciones;
+	private int			calificacion;
 
 
 	public Calendar getMomentoEscritura() {
@@ -45,12 +45,12 @@ public class Anotacion extends DomainEntity {
 	}
 
 	@Range(min = 0, max = 3)
-	public int getCalificaciones() {
-		return this.calificaciones;
+	public int getCalificacion() {
+		return this.calificacion;
 	}
 
-	public void setCalificaciones(final int calificaciones) {
-		this.calificaciones = calificaciones;
+	public void setCalificacion(final int calificacion) {
+		this.calificacion = calificacion;
 	}
 
 	// Relationships ----------------------------------------------------------

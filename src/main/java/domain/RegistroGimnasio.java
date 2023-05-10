@@ -22,7 +22,8 @@ public class RegistroGimnasio extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private Calendar fechaAlta;
+	private Calendar	fechaAlta;
+	private Calendar	fechaBaja;
 
 
 	@NotBlank
@@ -43,8 +44,6 @@ public class RegistroGimnasio extends DomainEntity {
 	}
 
 
-	private Calendar	fechaBaja;
-
 	// Relationships ----------------------------------------------------------
 
 	private Gimnasio	gimnasio;
@@ -55,10 +54,17 @@ public class RegistroGimnasio extends DomainEntity {
 	public Gimnasio getGimnasio() {
 		return this.gimnasio;
 	}
+	public void setGimnasio(final Gimnasio gimnasio) {
+		this.gimnasio = gimnasio;
+	}
 
 	@ManyToOne(optional = false)
 	public Cliente getCliente() {
 		return this.cliente;
+	}
+
+	public void setCliente(final Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 }

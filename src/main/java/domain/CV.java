@@ -19,7 +19,12 @@ public class CV extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String nombre;
+	private String				nombre;
+	private String				apellido;
+	private String				especialidad;
+	private String				formacion;
+	private int					experienciaLaboral;
+	private IdentidadSocial[]	identidadSocial;
 
 
 	@NotBlank
@@ -65,20 +70,13 @@ public class CV extends DomainEntity {
 		this.experienciaLaboral = experienciaLaboral;
 	}
 
-	public int getIdentidadSocial() {
+	public IdentidadSocial[] getIdentidadSocial() {
 		return this.identidadSocial;
 	}
 
-	public void setIdentidadSocial(final int identidadSocial) {
+	public void setIdentidadSocial(final IdentidadSocial[] identidadSocial) {
 		this.identidadSocial = identidadSocial;
 	}
-
-
-	private String	apellido;
-	private String	especialidad;
-	private String	formacion;
-	private int		experienciaLaboral;
-	private int		identidadSocial;
 
 	// Relationships ----------------------------------------------------------
 

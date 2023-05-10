@@ -62,4 +62,8 @@ public class Paso extends DomainEntity {
 		return this.entrenamiento;
 	}
 
+	public void setEntrenamiento(Entrenamiento entrenamiento) {
+		this.entrenamiento = entrenamiento;
+	}
+
 }

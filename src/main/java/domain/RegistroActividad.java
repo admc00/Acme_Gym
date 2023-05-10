@@ -22,7 +22,8 @@ public class RegistroActividad extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private Calendar fechaAlta;
+	private Calendar	fechaAlta;
+	private Calendar	fechaBaja;
 
 
 	@NotBlank
@@ -43,8 +44,6 @@ public class RegistroActividad extends DomainEntity {
 	}
 
 
-	private Calendar	fechaBaja;
-
 	// Relationships ----------------------------------------------------------
 
 	private Actividad	actividad;
@@ -55,10 +54,17 @@ public class RegistroActividad extends DomainEntity {
 	public Actividad getActividad() {
 		return this.actividad;
 	}
+	public void setActividad(final Actividad actividad) {
+		this.actividad = actividad;
+	}
 
 	@ManyToOne(optional = false)
 	public Cliente getCliente() {
 		return this.cliente;
+	}
+
+	public void setCliente(final Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 }

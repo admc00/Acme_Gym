@@ -26,7 +26,13 @@ public class Actividad extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String titulo;
+	private String		titulo;
+	private String		fotos;
+	private String		descripcion;
+	private Calendar	diaSemana;
+	private Calendar	horaInicio;
+	private Calendar	horaFin;
+	private int			numeroPlazas;
 
 
 	@NotBlank
@@ -88,33 +94,35 @@ public class Actividad extends DomainEntity {
 	}
 
 
-	private String							fotos;
-	private String							descripcion;
-	private Calendar						diaSemana;
-	private Calendar						horaInicio;
-	private Calendar						horaFin;
-	private int								numeroPlazas;
-
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Entrenador>			entrenador;
+	private Collection<Entrenador>			entrenadores;
 	private Gimnasio						gimnasio;
 	private Collection<RegistroActividad>	registrosActividad;
 
 
 	@ManyToMany
-	public Collection<Entrenador> getEntrenador() {
-		return this.entrenador;
+	public Collection<Entrenador> getEntrenadores() {
+		return this.entrenadores;
+	}
+	public void setEntrenadores(final Collection<Entrenador> entrenadores) {
+		this.entrenadores = entrenadores;
 	}
 
-	@ManyToOne(optional = false)
+	@ManyToOne
 	public Gimnasio getGimnasio() {
 		return this.gimnasio;
 	}
+	public void setGimnasio(final Gimnasio gimnasio) {
+		this.gimnasio = gimnasio;
+	}
 
 	@OneToMany
-	public Collection<RegistroActividad> getregistrosActividad() {
+	public Collection<RegistroActividad> getRegistrosActividad() {
 		return this.registrosActividad;
+	}
+	public void setRegistrosActividad(final Collection<RegistroActividad> registrosActividad) {
+		this.registrosActividad = registrosActividad;
 	}
 
 }

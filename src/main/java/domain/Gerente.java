@@ -41,4 +41,8 @@ public class Gerente extends Actor {
 	public Collection<Gimnasio> getGimnasios() {
 		return this.gimnasios;
 	}
+
+	public void setGimnasios(final Collection<Gimnasio> gimnasios) {
+		this.gimnasios = gimnasios;
+	}
 }
